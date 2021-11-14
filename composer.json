@@ -1,7 +1,6 @@
 {
     "name": "harits/kiriminaja",
     "description": "PHP Client For API Kiriminaaja",
-    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
