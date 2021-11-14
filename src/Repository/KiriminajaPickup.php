@@ -3,6 +3,7 @@
 namespace Haritsyp\Kiriminaja\Repository;
 
 use Haritsyp\Kiriminaja\Kiriminaja;
+use Haritsyp\Kiriminaja\Models\Pickup;
 
 class KiriminajaPickup extends Kiriminaja
 {
@@ -17,8 +18,20 @@ class KiriminajaPickup extends Kiriminaja
         parent::__construct($api_key, $is_production, $base_url);
     }
 
+    /**
+     * @return mixed
+     */
     public function getSchedule()
     {
-        $this->post('api/mitra/v2/schedules', []);
+        return $this->post('api/mitra/v2/schedules', []);
+    }
+
+    /**
+     * @param Pickup $pickup
+     * @return |null
+     */
+    public function create(Pickup $pickup)
+    {
+        return $this->post('api/mitra/v2/request_pickup', $pickup->toArray());
     }
 }

@@ -9,7 +9,7 @@ trait ApiRequester
      * @param array $param
      * @return mixed
      */
-    protected function get($uri, $param)
+    protected function get(string $uri, array $param)
     {
         $curl = curl_init();
 
@@ -53,7 +53,7 @@ trait ApiRequester
      * @param array $body
      * @return mixed
      */
-    protected function post($uri, $body)
+    protected function post(string $uri, array $body)
     {
         $curl = curl_init();
 
@@ -93,7 +93,7 @@ trait ApiRequester
      * @param array $body
      * @return mixed
      */
-    protected function put($uri, $body)
+    protected function put(string $uri, array $body)
     {
         $curl = curl_init();
 
@@ -133,7 +133,7 @@ trait ApiRequester
      * @param array $body
      * @return mixed
      */
-    protected function patch($uri, $body)
+    protected function patch(string $uri, array $body)
     {
         $curl = curl_init();
 
@@ -173,7 +173,7 @@ trait ApiRequester
      * @param array $body
      * @return mixed
      */
-    protected function delete($uri, $body)
+    protected function delete(string $uri, array $body)
     {
         $curl = curl_init();
 
