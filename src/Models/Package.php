@@ -92,29 +92,47 @@ class Package
     /**
      * @var int
      */
+    protected $add_cost;
+
+    /**
+     * @var int
+     */
+    protected $cod;
+
+    /**
+     * @var mixed | null
+     */
+    protected $insurance_amount;
+
+    /**
+     * @var int
+     */
     protected $qty;
 
     /**
      * Package constructor.
-     * @param string $order_id
-     * @param string $destination_name
-     * @param string $destination_phone
-     * @param string $destination_address
-     * @param int $destination_kecamatan_id
-     * @param int $destination_zipcode
-     * @param int $weight
-     * @param int $width
-     * @param int $height
-     * @param int $length
-     * @param int $item_value
-     * @param int $shipping_cost
-     * @param string $service
-     * @param string $service_type
-     * @param string $item_name
-     * @param int $package_type_id
+     * @param $order_id
+     * @param $destination_name
+     * @param $destination_phone
+     * @param $destination_address
+     * @param $destination_kecamatan_id
+     * @param $destination_zipcode
+     * @param $weight
+     * @param $width
+     * @param $height
+     * @param $length
+     * @param $item_value
+     * @param $shipping_cost
+     * @param $service
+     * @param $service_type
+     * @param $item_name
+     * @param $package_type_id
      * @param int $qty
+     * @param int $add_cost
+     * @param int $cod
+     * @param null $insurance_amount
      */
-    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1)
+    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1, $add_cost = 0, $cod = 0, $insurance_amount = null)
     {
         $this->order_id = $order_id;
         $this->destination_name = $destination_name;
@@ -132,6 +150,9 @@ class Package
         $this->service_type = $service_type;
         $this->item_name = $item_name;
         $this->package_type_id = $package_type_id;
+        $this->cod = $cod;
+        $this->add_cost = $add_cost;
+        $this->insurance_amount = $insurance_amount;
         $this->qty = $qty;
     }
 
@@ -410,5 +431,53 @@ class Package
     public function setQty($qty): void
     {
         $this->qty = $qty;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAddCost(): int
+    {
+        return $this->add_cost;
+    }
+
+    /**
+     * @param int $add_cost
+     */
+    public function setAddCost(int $add_cost): void
+    {
+        $this->add_cost = $add_cost;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCod(): int
+    {
+        return $this->cod;
+    }
+
+    /**
+     * @param int $cod
+     */
+    public function setCod(int $cod): void
+    {
+        $this->cod = $cod;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    public function getInsuranceAmount()
+    {
+        return $this->insurance_amount;
+    }
+
+    /**
+     * @param mixed|null $insurance_amount
+     */
+    public function setInsuranceAmount( $insurance_amount): void
+    {
+        $this->insurance_amount = $insurance_amount;
     }
 }
