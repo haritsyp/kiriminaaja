@@ -4,6 +4,10 @@ namespace Haritsyp\Kiriminaja\Repository;
 
 use Haritsyp\Kiriminaja\Kiriminaja;
 
+/**
+ * Class KiriminajaLocation
+ * @package Haritsyp\Kiriminaja\Repository
+ */
 class KiriminajaLocation extends Kiriminaja
 {
 

@@ -75,5 +75,4 @@ abstract class Kiriminaja
     {
         $this->base_url = $base_url;
     }
-
 }

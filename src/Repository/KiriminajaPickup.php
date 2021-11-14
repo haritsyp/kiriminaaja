@@ -5,6 +5,10 @@ namespace Haritsyp\Kiriminaja\Repository;
 use Haritsyp\Kiriminaja\Kiriminaja;
 use Haritsyp\Kiriminaja\Models\Pickup;
 
+/**
+ * Class KiriminajaPickup
+ * @package Haritsyp\Kiriminaja\Repository
+ */
 class KiriminajaPickup extends Kiriminaja
 {
     /**
@@ -28,10 +32,41 @@ class KiriminajaPickup extends Kiriminaja
 
     /**
      * @param Pickup $pickup
-     * @return |null
+     * @return mixed |null
      */
     public function create(Pickup $pickup)
     {
         return $this->post('api/mitra/v2/request_pickup', $pickup->toArray());
     }
+
+    /**
+     * @param string|null $pickup_number
+     * @param string|null $type
+     * @param string|null $status
+     * @param string|null $period
+     * @param string|null $schedule
+     * @return mixed
+     */
+    public function getList(string $pickup_number = null, string $type = null, string $status = null, string $period = null, string $schedule = null)
+    {
+        return $this->post('api/mitra/list_pickup', array_filter([
+            'type' => $type,
+            'status' => $status,
+            'period' => $period,
+            'schedule' => $schedule,
+            'pickup_number' => $pickup_number
+        ]));
+    }
+
+    /**
+     * @param string $pickup_number
+     * @return mixed
+     */
+    public function cancel(string $pickup_number)
+    {
+        return $this->post('api/mitra/cancel_pickup', [
+            'pickup_number' => $pickup_number
+        ]);
+    }
+
 }
