@@ -130,9 +130,9 @@ class Package
      * @param int $qty
      * @param int $add_cost
      * @param int $cod
-     * @param null $insurance_amount
+     * @param int $insurance_amount
      */
-    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1, $add_cost = 0, $cod = 0, $insurance_amount = null)
+    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1, $add_cost = 0, $cod = 0, $insurance_amount = 0)
     {
         $this->order_id = $order_id;
         $this->destination_name = $destination_name;
