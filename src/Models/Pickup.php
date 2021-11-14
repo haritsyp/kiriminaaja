@@ -205,7 +205,7 @@ class Pickup
     {
         $packageArr = [];
         foreach ($this->packages as $packageItem) {
-            $packageArr[] = $packageItem->toArray();
+            $packageArr[] = array_filter($packageItem->toArray());
         }
         return $packageArr;
     }
