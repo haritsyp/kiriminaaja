@@ -205,7 +205,16 @@ class Pickup
     {
         $packageArr = [];
         foreach ($this->packages as $packageItem) {
-            $packageArr[] = array_filter($packageItem->toArray());
+            $arr = array_filter($packageItem->toArray());
+            if (!isset($arr['add_cost'])) {
+                $arr['add_cost'] = 0;
+            }
+
+            if (!isset($arr['cod'])) {
+                $arr['cod'] = 0;
+            }
+
+            $packageArr[] = $arr;
         }
         return $packageArr;
     }
