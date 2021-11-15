@@ -110,6 +110,11 @@ class Package
     protected $qty;
 
     /**
+     * @var string
+     */
+    protected $drop;
+
+    /**
      * Package constructor.
      * @param $order_id
      * @param $destination_name
@@ -128,11 +133,12 @@ class Package
      * @param $item_name
      * @param $package_type_id
      * @param int $qty
+     * @param string $drop
      * @param int $add_cost
      * @param int $cod
      * @param int $insurance_amount
      */
-    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1, $add_cost = 0, $cod = 0, $insurance_amount = 0)
+    public function __construct($order_id, $destination_name, $destination_phone, $destination_address, $destination_kecamatan_id, $destination_zipcode, $weight, $width, $height, $length, $item_value, $shipping_cost, $service, $service_type, $item_name, $package_type_id, $qty = 1, $drop = 'CASHLESS', $add_cost = 0, $cod = 0, $insurance_amount = 0)
     {
         $this->order_id = $order_id;
         $this->destination_name = $destination_name;
@@ -152,10 +158,14 @@ class Package
         $this->package_type_id = $package_type_id;
         $this->cod = $cod;
         $this->add_cost = $add_cost;
+        $this->drop = $drop;
         $this->insurance_amount = $insurance_amount;
         $this->qty = $qty;
     }
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         return get_object_vars($this);
@@ -479,5 +489,21 @@ class Package
     public function setInsuranceAmount( $insurance_amount): void
     {
         $this->insurance_amount = $insurance_amount;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDrop(): string
+    {
+        return $this->drop;
+    }
+
+    /**
+     * @param string $drop
+     */
+    public function setDrop(string $drop): void
+    {
+        $this->drop = $drop;
     }
 }
