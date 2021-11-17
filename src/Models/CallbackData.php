@@ -8,6 +8,8 @@ class CallbackData
 
     protected $date;
 
+    protected $awb;
+
     public function __construct(array $data)
     {
         foreach ($data as $key => $val) {
@@ -47,5 +49,21 @@ class CallbackData
     public function setDate($date): void
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAwb()
+    {
+        return $this->awb;
+    }
+
+    /**
+     * @param mixed $awb
+     */
+    public function setAwb($awb): void
+    {
+        $this->awb = $awb;
     }
 }
