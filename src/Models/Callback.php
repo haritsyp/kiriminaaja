@@ -26,6 +26,13 @@ class Callback
     {
         foreach ($data as $key => $val) {
             if (property_exists(__CLASS__, $key)) {
+                if (is_array($val)) {
+                    foreach ($val as $item) {
+                        $arr[] = new CallbackData($item);
+                    }
+                    $this->$key = $arr ?? [];
+                    continue;
+                }
                 $this->$key = $val;
             }
         }
