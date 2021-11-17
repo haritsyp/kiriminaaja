@@ -26,7 +26,7 @@ class KiriminajaTracking extends Kiriminaja
      * @param string $order_id
      * @return mixed|void
      */
-    public function get(string $order_id)
+    public function getTracking(string $order_id)
     {
         return $this->post('', [
             'order_id' => $order_id
