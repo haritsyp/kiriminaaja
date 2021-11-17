@@ -28,7 +28,7 @@ class KiriminajaTracking extends Kiriminaja
      */
     public function getTracking(string $order_id)
     {
-        return $this->post('', [
+        return $this->post('api/mitra/tracking', [
             'order_id' => $order_id
         ]);
     }
